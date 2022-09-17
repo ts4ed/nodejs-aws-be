@@ -8,6 +8,9 @@ module.exports.getProduct = async (event) => {
   const products = await Product.find().select({ __v: 0, _id: 0 });
   return {
     statusCode: 200,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
     body: JSON.stringify({
       products: products,
     }),

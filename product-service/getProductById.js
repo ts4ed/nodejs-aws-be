@@ -5,13 +5,16 @@ const { Product } = require("./db/productModel");
 
 module.exports.getProductById = async (event) => {
   const { productId: id } = event.pathParameters;
-  console.log(event);
+
   await connectMongo();
-  const products = await Product.findOne({ id: id });
+  const product = await Product.findOne({ id: id });
   return {
     statusCode: 200,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
     body: JSON.stringify({
-      products: products,
+      product: product,
     }),
   };
 };

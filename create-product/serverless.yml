@@ -62,7 +62,7 @@ provider:
 
 functions:
   hello:
-    handler: handler.hello
+    handler: createProduct.createProduct
     events:
       - http:
           path: admin/create

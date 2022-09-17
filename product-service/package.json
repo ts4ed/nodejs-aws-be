@@ -12,6 +12,7 @@
     "dotenv": "^16.0.2",
     "mongodb": "^4.9.1",
     "mongoose": "^6.6.1",
-    "randomstring": "^1.2.2"
+    "randomstring": "^1.2.2",
+    "uuid": "^9.0.0"
   }
 }
