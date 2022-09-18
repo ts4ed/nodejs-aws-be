@@ -2,6 +2,7 @@
 const { connectMongo } = require("./db/connect");
 require("dotenv").config();
 const { Product } = require("./db/productModel");
+const { v4: uuidv4 } = require("uuid");
 
 module.exports.createProduct = async (event) => {
   const { name, price, description, yearCreation, authtor, title, image } =
@@ -15,6 +16,7 @@ module.exports.createProduct = async (event) => {
     authtor: authtor,
     title: title,
     image: image,
+    id: uuidv4(),
   });
   await product.save();
 

@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const { v4: uuidv4 } = require("uuid");
 
 const productShema = new mongoose.Schema({
   productName: {
@@ -9,10 +8,7 @@ const productShema = new mongoose.Schema({
   authtor: { type: String },
   price: { type: Number, required: true },
   description: { type: String, required: true },
-  id: {
-    type: String,
-    default: uuidv4(),
-  },
+  id: { type: String },
   title: { type: String, required: true },
   count: { type: Number, default: 1 },
   image: { type: String, required: true },
