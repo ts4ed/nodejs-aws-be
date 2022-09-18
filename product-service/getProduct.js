@@ -3,7 +3,7 @@ const { connectMongo } = require("./db/connect");
 require("dotenv").config();
 const { Product } = require("./db/productModel");
 
-module.exports.getProduct = async (event) => {
+const getProduct = async (event) => {
   await connectMongo();
   const products = await Product.find().select({ __v: 0, _id: 0 });
   return {
@@ -15,4 +15,8 @@ module.exports.getProduct = async (event) => {
       products: products,
     }),
   };
+};
+
+module.exports = {
+  getProduct,
 };

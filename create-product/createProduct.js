@@ -18,6 +18,24 @@ const createProduct = async (event) => {
     image: image,
     id: uuidv4(),
   });
+  if (
+    !name ||
+    !price ||
+    !description ||
+    !yearCreation ||
+    !authtor ||
+    !title ||
+    !image
+  )
+    return {
+      statusCode: 404,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
+      body: JSON.stringify({
+        message: "not all fields entered",
+      }),
+    };
   await product.save();
 
   return {
