@@ -4,7 +4,7 @@ require("dotenv").config();
 const { Product } = require("./db/productModel");
 const { v4: uuidv4 } = require("uuid");
 
-module.exports.createProduct = async (event) => {
+const createProduct = async (event) => {
   const { name, price, description, yearCreation, authtor, title, image } =
     JSON.parse(event.body);
   await connectMongo();
@@ -29,4 +29,8 @@ module.exports.createProduct = async (event) => {
       message: product,
     }),
   };
+};
+
+module.exports = {
+  createProduct,
 };
